@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Guardian",
+        "health": 12,
+        "defend": 77,
+        "attack": 77,
+        "type": "T9" 
+    }
+]
