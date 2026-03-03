@@ -1,5 +1,5 @@
 import type { QueryConfig } from "@/lib/vue-query";
-import type { MarchSpecialAnt, SpecialAntRarity, SpecialAntUnlockType } from "@/types/special-ant";
+import type { SpecialAntMarch, SpecialAntRarity, SpecialAntUnlockType } from "@/types/special-ant";
 import { queryOptions, useQuery } from "@tanstack/vue-query";
 
 export type GetSpecialAntsResponse = {
@@ -13,7 +13,7 @@ export type GetSpecialAntsResponse = {
   }[];
 }[]
 
-function toMarchSpecialAnts(response: GetSpecialAntsResponse): MarchSpecialAnt[] {
+function toSpecialAntMarchs(response: GetSpecialAntsResponse): SpecialAntMarch[] {
   return response.map(x => {
     const { id, name, image_url, season, unlock_types, rarity } = x
     return {
@@ -29,8 +29,8 @@ function toMarchSpecialAnts(response: GetSpecialAntsResponse): MarchSpecialAnt[]
 }
 
 export function getSpecialAnts(page = 1) {
-  return Promise.resolve<{ data: MarchSpecialAnt[] }>({
-    data: toMarchSpecialAnts([
+  return Promise.resolve<{ data: SpecialAntMarch[] }>({
+    data: toSpecialAntMarchs([
       {
         id: 12,
         name: 'PA',

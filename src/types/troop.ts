@@ -8,3 +8,9 @@ export type TroopMarch = {
     level: number
   }
 }
+
+export type AntAttribute = {
+  health: number;
+  attack: number;
+  defend: number;
+}

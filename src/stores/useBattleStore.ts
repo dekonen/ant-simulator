@@ -43,7 +43,7 @@ export const useBattleStore = defineStore('battle', {
     init() {
       const battleSetupStore = useBattleSetupStore()
       this.player1 = {
-        ...structuredClone(battleSetupStore.player1),
+        ...structuredClone(battleSetupStore.player1) ,
         specialAntMarches: battleSetupStore.player1.specialAntMarches.map((x, index) => {
           return {
             ...x,
@@ -51,9 +51,12 @@ export const useBattleStore = defineStore('battle', {
               health: 0,
               troops_count: 0
             },
-
           }
         })
+      }
+      this.player2 = {
+         ...structuredClone(battleSetupStore.player1),
+         specialAntMarches: []
       }
     },
     startBattle() {
